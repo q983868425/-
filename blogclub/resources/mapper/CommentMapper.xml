@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.dao.ICommentDao">
+	<insert id="save">
+		insert into comment (`uid`,`bid`,`ip`,`datetime`,`content`) values (#{uid},#{bid},#{ip},#{datetime},#{content})
+	</insert>
+	<delete id="delete">
+		delete from comment where id = #{id}
+	</delete>
+	<delete id="deleteByBlogId">
+		delete from comment where bid = #{blogId}
+	</delete>
+	<delete id="deleteByUserId">
+		delete from comment where uid = #{UserId}
+	</delete>
+	<select id="find" resultType="com.company.bean.Comment">
+		select `id`,`uid`,`bid`,`ip`,`datetime`,`content` from comment where bid=#{blogId}
+	</select>
+	
+</mapper>
+
+
+
+
+
